@@ -5,5 +5,5 @@ def print_last_digit(number):
          last_num = -1 * (last_num)
     printf("{}".format(last_num), end="")
 
-     return last_num
+    return last_num
 
