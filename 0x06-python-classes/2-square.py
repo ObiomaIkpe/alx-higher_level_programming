@@ -1,24 +1,29 @@
 #!/usr/bin/python3
 
-""" Creating a square object """
+"""Creates a class Square."""
 
 
 class Square:
-    """ Write a class Square that defines a square"""
+    """Defines a square by (1-square.py)."""
 
-    class __init__(self, size=0):
-        """
-        the init method is used for initialization
+    def __init__(self, size=0):
+        """Initializes a new square.
 
-        @self:
-            refers to the object itself
-        @size:
-            the size of the square, must be +ve
+        Args:
+            size (int): size of square
         """
-        if type(size) is int:
-            if size < 0:
-                raise ValueError("size must be >= 0")
-            else:
-                self.__size = size
-        else:
+        self.__size = self.__set_x(size)
+
+    def __set_x(self, size):
+        """Setter function to assign self.__size.
+
+        Args:
+        size (int): size of square
+        """
+        if (type(size) is not int):
             raise TypeError("size must be an integer")
+        if (size < 0):
+            raise ValueError("size must be >= 0")
+        self.__size = size
+
+        return (self.__size)
