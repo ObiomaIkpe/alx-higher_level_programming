@@ -1,0 +1,131 @@
+=============================
+How to use 7-base_geometry.py
+=============================
+
+This module contains 2 methods, `area(...)` and `integer_validator(...)`
+======
+Case 1:
+======
+Module is present
+
+    >>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+    >>>
+
+::
+
+=======
+Case 2:
+=======
+BaseGeometry takes doesn't take any argument to create an object
+
+    >>> Bg = BaseGeometry("Hello")
+    Traceback (most recent call last):
+      ...
+    TypeError: BaseGeometry() takes no arguments
+    >>>
+    >>> Bg = BaseGeometry()
+    >>>
+
+::
+
+=======
+Case 3:
+=======
+area(...) doesn't take in any argument, raises a TypeError when any
+is passed
+
+    >>> Bg.area("Hello")
+    Traceback (most recent call last):
+      ...
+    TypeError: BaseGeometry.area() takes 1 positional argument but 2 were given
+    >>>
+
+::
+
+=======
+Case 4:
+=======
+area(...) raises a Exception with messeage when called
+
+    >>> Bg.area()
+    Traceback (most recent call last):
+      ...
+    Exception: area() is not implemented
+    >>>
+
+::
+
+=======
+Case 5:
+=======
+integer_validator(...) takes two positional arguments for validation
+
+    >>> Bg.integer_validator()
+    Traceback (most recent call last):
+      ...
+    TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+    >>>
+    >>> Bg.integer_validator("Size", 54)
+    >>>
+
+=======
+Case 6:
+=======
+integer_validator(...) second argument must be an int, raises a
+TypeError when any other type is passed
+
+    >>> Bg.integer_validator("Size", "eleven")
+    Traceback (most recent call last):
+      ...
+    TypeError: Size must be an integer
+    >>>
+
+::
+
+=======
+Case 7:
+=======
+integer_validator(...) second argument must not be 0, otherwise a
+ValueError is raise
+
+    >>> Bg.integer_validator("Size", 0)
+    Traceback (most recent call last):
+      ...
+    ValueError: Size must be greater than 0
+
+::
+
+=======
+Case 8:
+=======
+integer_validator(...) second argument must not be negative,
+otherwise a ValueError is raised
+
+    >>> Bg.integer_validator("Size", -2)
+    Traceback (most recent call last):
+      ...
+    ValueError: Size must be greater than 0
+
+::
+
+=======
+Case 9:
+=======
+passing a boolean
+
+    >>> Bg.integer_validator("Size", True)
+    Traceback (most recent call last):
+              ...
+    TypeError: Size must be an integer
+
+::
+
+========
+Case 10:
+========
+Passing None to method
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("age", None)
+    Traceback (most recent call last):
+              ...
+    TypeError: age must be an integer
