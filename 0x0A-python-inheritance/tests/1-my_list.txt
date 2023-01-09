@@ -1,0 +1,61 @@
+=========================
+How to use `1-my_list.py`
+=========================
+
+This module defines a subclass of `list` called ``MyList``, which
+extends the functionality of `list` objects
+
+=====
+Usage
+=====
+
+Class `MyList` creates a subclass object of `list` type which contains all
+of it methods with added methods like the ``print_sorted(self)`` method
+that prints all items of it object it holds
+
+::
+
+    >>> MyList = __import__("1-my_list").MyList
+
+``print_sorted`` method only works on objects of type ``MyList`` otherwise,
+a TypeError is raised
+
+::
+
+    >>> my_list = []
+    >>> my_list.print_sorted()
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    AttributeError: 'list' object has no attribute 'print_sorted'
+
+::
+
+    >>> my_list = MyList()
+    >>> my_list.print_sorted()
+    []
+
+::
+
+    >>> my_list.append(33)
+    >>> my_list.append(18)
+    >>> my_list.append(20)
+    >>> my_list.append(-10)
+    >>> print(my_list)
+    [33, 18, 20, -10]
+    >>> my_list.print_sorted()
+    [-10, 18, 20, 33]
+    >>> print(my_list)
+    [33, 18, 20, -10]
+
+::
+
+``print_sorted`` method only sorts the ``MyList`` object if it contains
+only `int` data type otherwise, a TypeError is raised
+
+::
+
+    >>> my_list.append("Hello")
+    >>> my_list.print_sorted()
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    TypeError: '<' not supported between instances of 'str' and 'int'
